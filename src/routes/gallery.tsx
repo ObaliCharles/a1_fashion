@@ -24,7 +24,9 @@ export const Route = createFileRoute("/gallery")({
                 loading="lazy"
                 className="aspect-[3/4] w-full object-cover transition-transform duration-700 hover:scale-105"
               />
-              <figcaption className="py-3 text-[9px] uppercase tracking-wider">{caption}</figcaption>
+              <figcaption className="py-3 text-[9px] uppercase tracking-wider">
+                {caption}
+              </figcaption>
             </figure>
           ))}
         </div>

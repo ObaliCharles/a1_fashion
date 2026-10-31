@@ -39,14 +39,15 @@ export function ProductCard({ product }: { product: Product }) {
         </button>
         <button
           onClick={() => {
-            addToCart({
+            const added = addToCart({
               id: product.slug,
               name: product.name,
               price: product.price,
               image: product.image,
               type: "product",
             });
-            toast.success(`${product.name} added to bag`);
+            if (added) toast.success(`${product.name} added to bag`);
+            else toast.error("Your bag could not be updated in this browser.");
           }}
           className="absolute bottom-3 right-3 grid h-10 w-10 place-items-center bg-white text-neutral-900 transition hover:bg-neutral-900 hover:text-white sm:opacity-0 sm:group-hover:opacity-100"
           aria-label={`Add ${product.name} to bag`}

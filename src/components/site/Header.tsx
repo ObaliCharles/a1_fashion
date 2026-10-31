@@ -14,7 +14,10 @@ export function Header() {
   const items = useCart();
   const navigate = useNavigate();
   const location = useLocation();
-  useEffect(() => setMenuOpen(false), [location.pathname]);
+  useEffect(() => {
+    setMenuOpen(false);
+    setSearchOpen(false);
+  }, [location.pathname]);
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase();
     return q
@@ -36,10 +39,18 @@ export function Header() {
             <Menu className="h-5 w-5" />
           </button>
           <Link to="/" className="flex items-center gap-2 md:gap-3">
-            <img src="/images/a1-fashion-logo.png" alt="A1 Fashion" className="h-10 w-10 rounded-sm object-cover md:h-12 md:w-12" />
+            <img
+              src="/images/a1-fashion-logo.png"
+              alt="A1 Fashion"
+              className="h-10 w-10 rounded-sm object-cover md:h-12 md:w-12"
+            />
             <span className="leading-none">
-              <span className="block text-[13px] font-semibold tracking-[0.22em] md:text-base">A1 FASHION</span>
-              <span className="mt-1 hidden text-[8px] uppercase tracking-[0.3em] text-neutral-500 sm:block">Wear confidence</span>
+              <span className="block text-[13px] font-semibold tracking-[0.22em] md:text-base">
+                A1 FASHION
+              </span>
+              <span className="mt-1 hidden text-[8px] uppercase tracking-[0.3em] text-neutral-500 sm:block">
+                Wear confidence
+              </span>
             </span>
           </Link>
           <nav className="hidden h-full items-center gap-9 text-[10px] uppercase tracking-[0.18em] md:flex">
@@ -163,7 +174,7 @@ export function Header() {
             ))}
             <Link
               to="/services"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => setSearchOpen(false)}
               className="flex items-center justify-between border-b border-black/10 py-4 text-xs uppercase tracking-[0.15em]"
             >
               Fashion Services
@@ -172,7 +183,7 @@ export function Header() {
             <Link
               to="/enquire"
               search={{ type: "custom-order" }}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => setSearchOpen(false)}
               className="flex items-center justify-between border-b border-black/10 py-4 text-xs uppercase tracking-[0.15em]"
             >
               Custom Orders
@@ -181,7 +192,7 @@ export function Header() {
             <Link
               to="/enquire"
               search={{ type: "corporate" }}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => setSearchOpen(false)}
               className="flex items-center justify-between border-b border-black/10 py-4 text-xs uppercase tracking-[0.15em]"
             >
               Corporate Enquiries
@@ -199,7 +210,14 @@ export function Header() {
           />
           <aside className="absolute inset-y-0 left-0 w-[86%] max-w-sm bg-[#F5F1E9] p-6 transition-transform">
             <div className="flex items-center justify-between border-b border-black/10 pb-5">
-              <span className="flex items-center gap-3 font-serif text-xl tracking-[0.12em]"><img src="/images/a1-fashion-logo.png" alt="" className="h-10 w-10 rounded-sm object-cover" />A1 FASHION</span>
+              <span className="flex items-center gap-3 font-serif text-xl tracking-[0.12em]">
+                <img
+                  src="/images/a1-fashion-logo.png"
+                  alt=""
+                  className="h-10 w-10 rounded-sm object-cover"
+                />
+                A1 FASHION
+              </span>
               <button onClick={() => setMenuOpen(false)} aria-label="Close">
                 <X />
               </button>

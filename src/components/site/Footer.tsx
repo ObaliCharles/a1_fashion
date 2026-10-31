@@ -6,8 +6,15 @@ export function Footer() {
     <footer className="bg-[#171717] pb-16 text-[#F5F1E9] md:pb-0">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-14 sm:grid-cols-2 md:grid-cols-4 md:px-12 md:py-16">
         <div className="sm:col-span-2 md:col-span-1">
-          <Link to="/" className="inline-flex items-center gap-3 font-serif text-2xl tracking-[0.12em]">
-            <img src="/images/a1-fashion-logo.png" alt="" className="h-12 w-12 rounded-sm object-cover" />
+          <Link
+            to="/"
+            className="inline-flex items-center gap-3 font-serif text-2xl tracking-[0.12em]"
+          >
+            <img
+              src="/images/a1-fashion-logo.png"
+              alt=""
+              className="h-12 w-12 rounded-sm object-cover"
+            />
             A1 FASHION
           </Link>
           <p className="mt-4 max-w-xs text-xs leading-6 text-white/55">

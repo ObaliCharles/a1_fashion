@@ -10,12 +10,19 @@ const read = (): string[] => {
   }
 };
 const write = (ids: string[]) => {
-  localStorage.setItem(KEY, JSON.stringify(ids));
-  window.dispatchEvent(new Event("wishlist:update"));
+  try {
+    localStorage.setItem(KEY, JSON.stringify(ids));
+    window.dispatchEvent(new Event("wishlist:update"));
+    return true;
+  } catch {
+    return false;
+  }
 };
 export const toggleWishlist = (id: string) => {
   const ids = read();
-  write(ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id]);
+  if (!write(ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id])) {
+    return ids.includes(id);
+  }
   return !ids.includes(id);
 };
 export const useWishlist = () => {
